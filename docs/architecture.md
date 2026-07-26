@@ -147,6 +147,7 @@ Asusu-AI/
 │
 ├── README.md
 ├── requirements.txt
+├── .env.example
 ├── .gitignore
 │
 ├── app/ # Streamlit application

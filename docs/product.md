@@ -60,8 +60,7 @@ Browse the curriculum by concept.
 Each lesson contains
 
 - Explanation
-- Native Audio
-- Examples
+- Native Audio Examples
 - Explanation Exercises
 - AI Tutor
 - Exercise 1

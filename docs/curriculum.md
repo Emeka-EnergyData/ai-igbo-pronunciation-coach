@@ -120,3 +120,15 @@ Exercises
 - Boss Challenge
 
 ---
+Foundation
+
+    Alphabet
+
+        Lesson 1.1
+        Lesson 1.2
+        Lesson 1.3
+
+    Pronunciation
+
+        Lesson 2.1
+        Lesson 2.2
