@@ -11,7 +11,7 @@ st.title(lesson["title"])
 st.info(lesson["concept"])
 
 # ----------------------------------# Compound Consonants# ----------------------------------
-st.header (lesson["section_title"])
+st.header ("The 9 Compound Consonants (Nchịkọta Mgbadọ)")
 st.write("""""")
 compound_letters = lesson["compound_letters"]
 st.divider()
