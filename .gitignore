@@ -5,4 +5,25 @@ __pycache__/
 *.pyc
 .vscode/
 .Ds_Store
-.env
+assets/audio/ch.wav
+assets/audio/gh.wav
+assets/audio/gw.wav
+assets/audio/gb.wav
+assets/audio/Igbo - Track 2.wav
+assets/audio/Igbo - Track 3.wav
+assets/audio/Igbo - Track 5.wav
+assets/audio/Igbo - Track 6.wav
+assets/audio/Igbo - Track 8.wav
+assets/audio/Igbo - Track 9.wav
+assets/audio/Igbo - Track 11.wav
+assets/audio/Igbo - Track 12.wav
+assets/audio/Igbo - Track 16.wav
+assets/audio/Igbo - Track 14.wav
+assets/audio/Igbo - Track 20.wav
+assets/audio/Igbo - Track 18.wav
+assets/audio/Igbo - Track 22.wav
+assets/audio/kp.wav
+assets/audio/kw.wav
+assets/audio/nw.wav
+assets/audio/ny.wav
+assets/audio/sh.wav

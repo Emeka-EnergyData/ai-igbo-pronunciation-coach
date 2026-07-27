@@ -317,3 +317,33 @@ The database is intentionally developed in phases.
 Rather than attempting to build every feature upfront, each phase introduces only the tables required to support the application's current functionality.
 
 This incremental approach keeps the MVP manageable, simplifies development, and allows the database to grow naturally as new features are added.
+
+## Database Flow
+
+The application retrieves lesson data using a layered architecture.
+
+```
+Streamlit Page
+        │
+        ▼
+lesson_service.load_lesson(lesson_id)
+        │
+        ▼
+lesson_repository.get_lesson(lesson_id)
+        │
+        ▼
+SQLAlchemy Engine
+        │
+        ▼
+PostgreSQL Database
+```
+
+### Flow Description
+
+1. The Streamlit page requests a lesson.
+2. The `lesson_service` coordinates the data required for the page.
+3. The `lesson_repository` executes SQL queries using SQLAlchemy.
+4. SQLAlchemy manages the database connection.
+5. PostgreSQL returns the requested records.
+6. The repository converts the result into Python dictionaries.
+7. The service combines lesson, lesson items and exercises into a single object for the UI.

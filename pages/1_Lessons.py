@@ -1,14 +1,16 @@
-from learning_engine.lesson_service import load_lesson
+from src.learning_engine.lesson_service import load_lesson
 import streamlit as st
 
 
 lesson = load_lesson(1)
+
+exercises = lesson["exercises"]
 # ----------------------------------# Page Configuration# ----------------------------------
 st.set_page_config( page_title="Asụsụ AI", page_icon=" ", layout="wide")
 
-st.title(lesson["title"])
+st.title(lesson["lesson"]["title"])
 # ----------------------------------# Lesson Introduction# ----------------------------------
-st.info(lesson["concept"])
+st.info(lesson["lesson"]["concept"])
 
 # ----------------------------------# Compound Consonants# ----------------------------------
 st.header ("The 9 Compound Consonants (Nchịkọta Mgbadọ)")
@@ -20,14 +22,11 @@ for item in compound_letters:
     with st.container():
         col1, col2 = st.columns([1,4])
         with col1:
-            st.subheader(item["letter"])
+            st.subheader(item["title"])
         with col2:
-            st.write(item["sound"])
+            st.write(item["explanation"])
             st.write(f"**Example:** {item['example']}")
-            st.button(
-                " Play Audio",
-                key=item["letter"]
-                )
+            st.audio(item["audio_path"])
         st.divider()
 
 # ----------------------------------
@@ -44,12 +43,9 @@ for i, exercise in enumerate(exercises):
 
         st.write(f"### {exercise['prompt']}")
 
-        st.info(f"💡 Hint: {exercise['guide']}")
+        st.info(f"💡 Hint: {exercise['hint']}")
 
-        st.button(
-            "🔊 Play Target Audio",
-            key=f"audio_{i}"
-        )
+        st.audio(exercise["audio_path"])
 
         st.write("🎤 Record your answer")
 
