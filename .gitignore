@@ -27,3 +27,11 @@ assets/audio/kw.wav
 assets/audio/nw.wav
 assets/audio/ny.wav
 assets/audio/sh.wav
+
+.vscode/
+
+*.code-workspace
+
+*.session.sql
+
+data/
