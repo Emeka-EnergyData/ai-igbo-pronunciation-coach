@@ -1,6 +1,9 @@
-from src.learning_engine.lesson_service import load_lesson
 import streamlit as st
-
+from src.learning_engine.lesson_service import load_lesson
+from streamlit_mic_recorder import mic_recorder
+from src.audio.recorder import save_audio
+from src.ai.speech_to_text import transcribe_audio
+from src.ai.feedback_service import generate_feedback
 
 lesson = load_lesson(1)
 
@@ -39,7 +42,7 @@ exercises = lesson["exercises"]
 
 for i, exercise in enumerate(exercises):
 
-    with st.expander(exercise["title"], expanded=(i == 0)):
+    with st.expander(exercise["title"], expanded= True):
 
         st.write(f"### {exercise['prompt']}")
 
@@ -47,37 +50,46 @@ for i, exercise in enumerate(exercises):
 
         st.audio(exercise["audio_path"])
 
-        st.write("🎤 Record your answer")
+        # Mic Setup
+        audio = mic_recorder(
+            start_prompt="Start Recording",
+            stop_prompt="Stop Recording",
+            key=f"recorder_{i}")
+        
+        # Save Audio
+        if audio:
+            file_path = save_audio(audio, f"exercise_{i}.wav")
+            st.success("Recording saved successfully!")
+            
+        # Audio Playback
+        if audio:
+            st.audio(file_path)
 
-        st.button(
-            "Start Recording",
-            key=f"start_{i}"
-        )
-
-        st.button(
-            "Stop Recording",
-            key=f"stop_{i}"
-        )
-
+        #Submit Audio
         if st.button(
             "Submit Answer",
             key=f"submit_{i}"
         ):
-
+            with st.spinner("Listening and analysing your pronunciation..."):
+                text = transcribe_audio(file_path)
+                
+            feedback = generate_feedback(expected_answer=exercise["expected_answer"], transcription=text)
+            
             st.success("Placeholder AI Feedback")
 
-            st.metric(
-                "AI Score",
-                "4 / 5 ⭐"
-            )
+            st.write(f"**Transcription:** {feedback.transcription}")
 
-            st.write("""
-Great pronunciation!
+            st.write(f"**Score:** {feedback.score}/10")
 
-✅ Your compound consonant was clear.
+            st.write(f"**Correct:** {feedback.correct}")
 
-Keep practising the vowel sound.
-""")
+            st.write(f"**Feedback:** {feedback.pronunciation_feedback}")
+
+            st.write(f"**Mistake:** {feedback.mistake}")
+
+            st.write(f"**Next Tip:** {feedback.next_tip}")
+
+            st.write(f"**Encouragement:** {feedback.encouragement}")
 
             confidence = st.slider(
                 "How confident are you?",
@@ -96,6 +108,7 @@ Keep practising the vowel sound.
 
             if verified:
                 st.success("✔ Human verification recorded")
+
 st.divider()
 
 col1,col2 = st.columns(2)

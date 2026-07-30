@@ -122,8 +122,8 @@ Enable voice-first learning.
 
 ### Features
 
-- [ ] Play native audio
-- [ ] Record learner audio
+- [X] Play native audio
+- [X] Record learner audio
 - [ ] Speech-to-text
 - [ ] Answer checking
 

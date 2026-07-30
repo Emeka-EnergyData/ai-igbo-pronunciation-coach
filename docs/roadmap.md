@@ -112,9 +112,9 @@ Allow learners to interact using speech.
 
 ### Tasks
 
-- [ ] Play lesson audio
-- [ ] Record microphone input
-- [ ] Save recordings
+- [X] Play lesson audio
+- [X] Record microphone input
+- [X] Save recordings
 - [ ] Speech-to-text
 
 At the end of this sprint:
