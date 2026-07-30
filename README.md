@@ -61,12 +61,12 @@ This project combines speech recognition, large language models, and educational
 
 ## Documentation
 
-- "Product Vision" (docs/product.md)
-- "Development Roadmap" (docs/roadmap.md)
-- "Curriculum" (docs/architecture.md)
-- "System Architecture" (docs/architecture.md)
-- "Database Design" (docs/database.md)
-- "AI Pipeline" (docs/ai.md)
+- [Product Vision] (docs/product.md)
+- [Development Roadmap] (docs/roadmap.md)
+- [Curriculum] (docs/architecture.md)
+- [System Architecture] (docs/architecture.md)
+- [Database Design] (docs/database.md)
+- [AI Pipeline] (docs/ai.md)
 
 ## AI Workflow
 
