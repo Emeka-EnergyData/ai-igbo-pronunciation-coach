@@ -1,6 +1,6 @@
 # AI Igbo Pronunciation Coach
 
-> **Current Status:** 🚧 MVP Complete | Preparing for Deployment
+> **Current Status:** MVP Complete | Preparing for Deployment
 
 ## Overview
 
@@ -132,4 +132,5 @@ streamlit run app.py
 ## License
 
 This project is intended for educational and research purposes.
+> **Note**: Audio assets used during development are not included in this repository because they are not redistributable. Replace them with your own recordings before deployment.
 
